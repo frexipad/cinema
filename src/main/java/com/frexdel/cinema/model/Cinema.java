@@ -18,6 +18,7 @@ public class Cinema implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 75)
     private String name;
     private double longitude,latitude,altitude;
     private int nombreSalles;
