@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -14,4 +14,17 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 public class Ticket implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nomClient;
+    private double prix;
+    private int codePayement;
+    private boolean reserve ;
+    @ManyToOne
+    private Place place;
+    @ManyToOne
+    private Projection projection;
+
 }

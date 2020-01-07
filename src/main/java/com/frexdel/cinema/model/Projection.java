@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
@@ -14,19 +14,22 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Place implements Serializable {
-
+public class Projection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numero;
-    private double longitude,latitude,altitude;
+    private LocalDate date;
+    private double prix;
 
     @ManyToOne
     private Salle salle;
 
-    @OneToMany(mappedBy = "place")
+    @ManyToOne
+    private Film film;
+
+    @OneToMany(mappedBy = "projection")
     Collection<Ticket> tickets;
 
-
+    @ManyToOne
+    Seance seance;
 }

@@ -8,6 +8,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,6 +28,12 @@ public class Film implements Serializable {
     private String photo;
     private LocalDate date;
 
+    @ManyToMany(mappedBy = "films")
+    private Collection<Salle> salles ;
+
+    @OneToMany(mappedBy = "film")
+    private Collection<Projection> projections ;
+
     @ManyToOne
-    private Salle salle;
+    private Categorie categorie;
 }
