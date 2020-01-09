@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Collection;
+import java.time.LocalTime;
+
 
 @Entity
 @Data
@@ -18,7 +18,7 @@ public class Seance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate heureDebut;
+    private LocalTime heureDebut;
 
 
 }

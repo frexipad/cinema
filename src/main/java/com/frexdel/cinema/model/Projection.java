@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 @Entity
@@ -18,7 +19,7 @@ public class Projection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
+    private LocalDateTime date;
     private double prix;
 
     @ManyToOne
