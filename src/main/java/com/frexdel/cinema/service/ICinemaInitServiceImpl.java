@@ -139,9 +139,10 @@ public class ICinemaInitServiceImpl implements ICinemaInitService {
 
     @Override
     public void initTickets() {
+        int codePayement =100;
         placeRepository.findAll().forEach(place -> {
             Ticket ticket = new Ticket();
-            ticket.setCodePayement(new Random().nextInt((99999 - 15) + 1) + 15);
+            ticket.setCodePayement(codePayement+1);
             ticket.setNomClient("IBOUDAATEN");
             ticket.setPlace(place);
             ticket.setPrix(new Random().nextInt((130 - 120) + 1) + 120);
