@@ -30,7 +30,7 @@ public class CinemaApplication implements CommandLineRunner {
         iCinemaInitService.initFilms();
         iCinemaInitService.initProjections();
         iCinemaInitService.initTickets();
-        System.out.println("Film :"+filmRepository.save(new Film("ynss")));
+        System.out.println(filmRepository.save(new Film("ynss")));
         System.out.println("---------------------------------------------------");
 
     }

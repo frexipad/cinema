@@ -1,5 +1,6 @@
 package com.frexdel.cinema.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Salle implements Serializable {
     private Cinema cinema;
 
     @OneToMany(mappedBy = "salle")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Place> places;
 
     @ManyToMany()
@@ -35,8 +37,10 @@ public class Salle implements Serializable {
             joinColumns = @JoinColumn(name = "salle_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id")
     )
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Film> films;
 
     @OneToMany(mappedBy = "salle")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     Collection<Projection> projections;
 }

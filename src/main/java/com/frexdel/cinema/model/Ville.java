@@ -1,5 +1,6 @@
 package com.frexdel.cinema.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,6 @@ public class Ville implements Serializable {
     private int nombreSalles;
 
     @OneToMany(mappedBy = "ville")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Cinema> cinemas;
 }

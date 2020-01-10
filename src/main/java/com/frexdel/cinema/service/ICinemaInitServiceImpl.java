@@ -4,12 +4,15 @@ import com.frexdel.cinema.dao.*;
 import com.frexdel.cinema.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 @Service
+@Transactional
 public class ICinemaInitServiceImpl implements ICinemaInitService {
     @Autowired
     VilleRepository villeRepository;
