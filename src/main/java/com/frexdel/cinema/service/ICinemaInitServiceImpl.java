@@ -104,11 +104,10 @@ public class ICinemaInitServiceImpl implements ICinemaInitService {
 
     @Override
     public void initFilms() {
-        Stream.of("need for speed","king of fighter","street fighter").forEach(filmName->{
+        Stream.of("1","2","3").forEach(filmName->{
             List<Categorie> categorieList = categorieRepository.findAll();
             Film film = new Film();
             film.setTitle(filmName);
-            film.setTitle("Title inconnue");
             film.setDiscription("Description unkhnoun");
             film.setCategorie(categorieList.get(new Random().nextInt(categorieList.size())));
             filmRepository.save(film);
