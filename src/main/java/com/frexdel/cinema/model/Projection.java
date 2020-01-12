@@ -29,7 +29,7 @@ public class Projection implements Serializable {
 
     @ManyToOne
     private Film film;
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "projection")
     Collection<Ticket> tickets;
 
