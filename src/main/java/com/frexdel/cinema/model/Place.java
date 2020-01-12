@@ -1,5 +1,6 @@
 package com.frexdel.cinema.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,11 +25,12 @@ public class Place implements Serializable {
     private double longitude,latitude,altitude;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Salle salle;
 
 
     @OneToMany(mappedBy = "place",cascade = CascadeType.ALL)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonManagedReference
     Collection<Ticket> tickets;
 
 

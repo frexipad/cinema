@@ -1,5 +1,6 @@
 package com.frexdel.cinema.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Ticket implements Serializable {
     private int codePayement;
     private boolean reserve ;
     @ManyToOne
+    @JsonBackReference
     private Place place;
     @ManyToOne
     private Projection projection;
