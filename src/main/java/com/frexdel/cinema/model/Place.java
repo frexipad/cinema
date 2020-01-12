@@ -26,8 +26,9 @@ public class Place implements Serializable {
     @ManyToOne
     private Salle salle;
 
-    @OneToMany(mappedBy = "place")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
+    @OneToMany(mappedBy = "place",cascade = CascadeType.ALL)
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     Collection<Ticket> tickets;
 
 

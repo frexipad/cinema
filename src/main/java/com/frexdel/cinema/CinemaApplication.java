@@ -25,9 +25,9 @@ public class CinemaApplication implements CommandLineRunner {
         iCinemaInitService.initCinemas();
         iCinemaInitService.initSalles();
         iCinemaInitService.initPlaces();
-        iCinemaInitService.initSeances();
         iCinemaInitService.initCategories();
         iCinemaInitService.initFilms();
+        iCinemaInitService.initSeances();
         iCinemaInitService.initProjections();
         iCinemaInitService.initTickets();
         System.out.println(filmRepository.save(new Film("ynss")));

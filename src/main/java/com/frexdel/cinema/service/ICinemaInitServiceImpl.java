@@ -139,16 +139,15 @@ public class ICinemaInitServiceImpl implements ICinemaInitService {
 
     @Override
     public void initTickets() {
-        int codePayement =100;
-        placeRepository.findAll().forEach(place -> {
-            Ticket ticket = new Ticket();
-            ticket.setCodePayement(codePayement+1);
-            ticket.setNomClient("IBOUDAATEN");
-            ticket.setPlace(place);
-            ticket.setPrix(new Random().nextInt((130 - 120) + 1) + 120);
-            ticket.setReserve(false);
-            ticketRepository.save(ticket);
+        projectionRepository.findAll().forEach(projection -> {
+            projection.getSalle().getPlaces().forEach(place -> {
+                Ticket ticket= new Ticket();
+                ticket.setReserve(false);
+                ticket.setPlace(place);
+                ticket.setProjection(projection);
+                ticket.setPrix(90);
+                ticketRepository.save(ticket);
+            });
         });
-
     }
 }
