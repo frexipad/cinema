@@ -11,5 +11,6 @@ import java.util.List;
 @Service
 public class TicketForm implements Serializable {
     private String nomClient;
+    private int codePayement;
     private List<Long>listTickets= new ArrayList<>();
 }

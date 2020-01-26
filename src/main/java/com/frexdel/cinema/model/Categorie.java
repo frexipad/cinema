@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.rest.core.config.Projection;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,4 +26,6 @@ public class Categorie implements Serializable {
     @OneToMany(mappedBy = "categorie")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Film> films;
+
+
 }
